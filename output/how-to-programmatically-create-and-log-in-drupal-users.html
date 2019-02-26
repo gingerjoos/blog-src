@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dreams of thought</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/theme/slicknav.css">
+    <script src="/theme/jquery.slicknav.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+<script>
+	$(function(){
+		$('#menu').slicknav({'label':''});
+	});
+</script>
+<link rel="icon" href="/theme/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="114x114" href="/theme/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/theme/favicon152.png">
+<link rel="apple-touch-icon" sizes="196x196" href="/theme/favicon196.png">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<nav class="byline"><ul id="menu">
+        </ul></nav><!-- /#menu -->
+        <div class="downloads">
+          <a href="#" class="fa fa-Twitter"></a>
+          <a href="#" class="fa fa-Github"></a>
+        </div>
+        <hgroup>
+          <h1>How to programmatically create and log in drupal users</h1>
+  <footer class="article-footer">
+    <address class="vcard author">
+      By           <a class="url fn" href="./author/admin.html">admin</a>
+    </address>
+    <abbr class="published" title="2010-02-22T20:39:00+05:30">
+       on 22.02.2010
+    </abbr>
+  </footer><!-- /.post-info -->
+        </hgroup>
+  
+
+
+    <meta name="tags" contents="drupal" />
+    <meta name="tags" contents="php" />
+    <meta name="tags" contents="user" />
+
+      </header>
+<section id="content" class="body article">
+  <div class="entry-content">
+    <div class="line-block">
+<div class="line">Creating a new user is very easy in Drupal 6. Here's how.</div>
+<div class="line">[sourcecode language=&quot;php&quot;]</div>
+</div>
+<p>&gt;</p>
+<p>$new_user = array(</p>
+<div class="line-block">
+<div class="line">'name' =&gt; $username,</div>
+<div class="line-block">
+<div class="line">'mail' =&gt; $mail,</div>
+<div class="line">'pass' =&gt; user_password(),</div>
+<div class="line">'status' =&gt; 1,</div>
+<div class="line">'auth_MODULENAME' =&gt; $username</div>
+</div>
+<div class="line">)</div>
+</div>
+<p>$user = user_save(NULL,$new_user)</p>
+<p>// log the user in</p>
+<p>$user = user_authenticate($new_user)</p>
+<p>[/sourcecode]</p>
+<p>Now for the explanation. We create a $new_user array with values we
+want the newly created user to have. We pass this along to the
+<a class="reference external" href="http://api.drupal.org/api/function/user_save/6">user_save</a> function
+and set the 1st parameter as NULL. From the code comments in the user
+module -</p>
+<blockquote>
+<div class="line-block">
+<div class="line">* &#64;param $account</div>
+<div class="line-block">
+<div class="line">* The $user object for the user to modify or add. If $user-&gt;uid is</div>
+<div class="line">* omitted, a new user will be added.</div>
+<div class="line">*</div>
+<div class="line">* &#64;param $array</div>
+<div class="line">* (optional) An array of fields and values to save. For example,</div>
+<div class="line">* array('name' =&gt; 'My name'); Setting a field to NULL deletes it from</div>
+<div class="line">* the data column.</div>
+</div>
+</div>
+</blockquote>
+<p>So setting the 1st parameter as NULL creates a new user.</p>
+<p>The parameters name, mail, pass and status are all self explanatory. The
+<a class="reference external" href="http://api.drupal.org/api/function/user_password/6">user_password</a>
+function generates a random password (by default with a length of 10).</p>
+<p>The (optional) 'auth_MODULENAME' element will record the user as being
+created externally. This will result in an entry in the authmap table
+like this -</p>
+<div class="line-block">
+<div class="line">&quot;aid&quot; &quot;uid&quot; &quot;authname&quot; &quot;module&quot;</div>
+<div class="line">&quot;2&quot; &quot;20&quot; &quot;USERNAME&quot; &quot;MODULENAME&quot;</div>
+</div>
+<p>The
+<a class="reference external" href="http://api.drupal.org/api/function/user_authenticate/6">user_authenticate</a>
+function logs the user in. This function expects an array as a
+parameter. It first loads the user in using the
+<a class="reference external" href="http://api.drupal.org/api/function/user_load/6">user_load</a> function
+and in case of no errors logs the user in.</p>
+<p>This approach of logging in a user is useful when we have the array with
+us which contains the raw values used to create the user. If all you
+have is the uid of the user, then logging the user in is very simple.
+Just use the global $user object.</p>
+<p>[sourcecode language=&quot;php&quot;]</p>
+<p>global $user</p>
+<p>$account = user_load( array('name' =&gt; 'USERNAME') ); // or
+user_load(UID)</p>
+<p>$user = $account</p>
+<p>[/sourcecode]</p>
+<p>Don't use the user_authenticate function here as it expects the raw
+values(form values). This wil not work -</p>
+<p>[sourcecode language=&quot;php&quot;]</p>
+<p>$account = user_load( array('name' =&gt; 'USERNAME') ); // or
+user_load(UID)</p>
+<p>user_authenticate((array)$account)</p>
+<p>[/sourcecode]</p>
+<p>It will take whatever password is stored in the user object(the raw
+password), md5 it and then run a query to load that user. Since the
+password in the query is not the raw password but the md5, the query
+will return nothing. This will cause an error in the user_authenticate
+function.</p>
+<p>For a direct code example for programmatic log in, check the
+<a class="reference external" href="http://drupal.org/project/Devel">devel</a> module's devel_switch_user
+function.</p>
+
+  </div><!-- /.entry-content -->
+  <div class="article-share-tags">
+  <div class="end-article-tags">
+      <i class="fa fa-tags"></i>
+      <a href="./tag/drupal.html">drupal</a>
+      <a href="./tag/php.html">php</a>
+      <a href="./tag/user.html">user</a>
+  </div>
+  <div class='article-share'>
+      share -
+  </div>
+  </div>
+</section>
+<div class="neighbors">
+</div>
+      <footer>
+	  <a href="./pages/about.html" >About</a>
+	  <div class="right-footer">
+	  <a href="./categories.html" >Categories</a>
+	  <a href="./tags.html" >Tags</a>
+	  </div>
+      </footer>
+</body>
+</html>

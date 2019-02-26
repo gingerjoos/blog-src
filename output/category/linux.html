@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dreams of thought</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/theme/slicknav.css">
+    <script src="/theme/jquery.slicknav.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+<script>
+	$(function(){
+		$('#menu').slicknav({'label':''});
+	});
+</script>
+<link rel="icon" href="/theme/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="114x114" href="/theme/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/theme/favicon152.png">
+<link rel="apple-touch-icon" sizes="196x196" href="/theme/favicon196.png">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<nav class="byline"><ul id="menu">
+        </ul></nav><!-- /#menu -->
+        <div class="downloads">
+          <a href="#" class="fa fa-Twitter"></a>
+          <a href="#" class="fa fa-Github"></a>
+        </div>
+        <hgroup>
+          <h1>Category</h1>
+          <h2 class="tagline">Linux</h2>
+        </hgroup>
+      </header>
+<section id="content">
+<ul id="post-list">
+        <li><article class="hentry">
+            <header class="article-list"> <h2 class="entry-title"><a href="../installing-jetty-on-centos.html" rel="bookmark" title="link to Installing Jetty on CentOS">Installing Jetty on CentOS</a></h2>
+                <footer class="post-info">
+                    <address class="vcard author">By
+                        <a class="url fn" href="../author/admin.html">admin</a>
+                    </address>
+                    <abbr class="published" title="2012-08-29T16:06:00+05:30">  on 29.08.2012 </abbr>
+                </footer><!-- /.post-info -->
+	    </header>
+                <div class="entry-content"> <p><strong>Step 1 : Enable the jpackage repo</strong>
+Download the <a class="reference external" href="http://jpackage.org/jpackage50.repo">jpackage.repo</a>
+file to your /etc/yum.repos.d/ directory.</p>
+<p>`` # cd /etc/yum.repos.d/ # wget <a class="reference external" href="http://jpackage.org/jpackage50">http://jpackage.org/jpackage50</a>.repo``</p>
+<div class="line-block">
+<div class="line"><strong>Step 2 : Install the jetty package you want</strong></div>
+</div>
+<div class="line-block">
+<div class="line">`` # yum search jetty``</div>
+</div>
+<p>will show you a list of jetty packages you want …</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+            <header class="article-list"> <h2 class="entry-title"><a href="../apt-get-with-proxy.html" rel="bookmark" title="link to apt-get with proxy">apt-get with proxy</a></h2>
+                <footer class="post-info">
+                    <address class="vcard author">By
+                        <a class="url fn" href="../author/admin.html">admin</a>
+                    </address>
+                    <abbr class="published" title="2011-08-01T17:50:00+05:30">  on 01.08.2011 </abbr>
+                </footer><!-- /.post-info -->
+	    </header>
+                <div class="entry-content"> <p>You will notice that the proxy settings you provide in the network
+settings may not be picked up by apt-get while installing a package. So
+if you want to run apt-get via a proxy then you need to use a tool like
+proxychains. Proxychains is a tool that allow you …</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+            <header class="article-list"> <h2 class="entry-title"><a href="../vimdiff-the-cool-way-to-diff-for-vim-users.html" rel="bookmark" title="link to vimdiff - the cool way to diff for vim users">vimdiff - the cool way to diff for vim users</a></h2>
+                <footer class="post-info">
+                    <address class="vcard author">By
+                        <a class="url fn" href="../author/admin.html">admin</a>
+                    </address>
+                    <abbr class="published" title="2009-10-20T21:30:00+05:30">  on 20.10.2009 </abbr>
+                </footer><!-- /.post-info -->
+	    </header>
+                <div class="entry-content"> <p>Some of you using the vim editor may not know about a tool that comes
+with vim called vimdiff. Vimdiff is an awesome way to diff files if you
+are a vim nut. It gives you the power of vim + the power of diff.</p>
+<p>How's this different from opening 2 …</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+            <header class="article-list"> <h2 class="entry-title"><a href="../copy-files-preserving-the-permissions.html" rel="bookmark" title="link to Copy files preserving the permissions">Copy files preserving the permissions</a></h2>
+                <footer class="post-info">
+                    <address class="vcard author">By
+                        <a class="url fn" href="../author/admin.html">admin</a>
+                    </address>
+                    <abbr class="published" title="2009-10-01T20:52:00+05:30">  on 01.10.2009 </abbr>
+                </footer><!-- /.post-info -->
+	    </header>
+                <div class="entry-content"> <p>You might have come across a situation where your regular usage of the
+<a class="reference external" href="http://en.wikipedia.org/wiki/Cp_%28Unix%29">cp command</a> for copying
+files in your linux box was not enough because while copying you needed
+to preserve the permissions of the files. Fret not, for help is at hand.
+Take a look at the man …</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+            <header class="article-list"> <h2 class="entry-title"><a href="../how-to-join-split-files.html" rel="bookmark" title="link to How to join split files">How to join split files</a></h2>
+                <footer class="post-info">
+                    <address class="vcard author">By
+                        <a class="url fn" href="../author/admin.html">admin</a>
+                    </address>
+                    <abbr class="published" title="2009-06-24T13:46:00+05:30">  on 24.06.2009 </abbr>
+                </footer><!-- /.post-info -->
+	    </header>
+                <div class="entry-content"> <p>This is sort of a follow-up to my previous post which talked about <a class="reference external" href="http://gingerjoos.com/blog/linux/hjsplit-and-linux-split">how
+you can use the split command in Linux to create split files which can
+be joined with hjsplit on
+Windows</a>.
+My theory is that hjsplit does the same thing split does - which is just
+take the …</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+            <header class="article-list"> <h2 class="entry-title"><a href="../hjsplit-and-linux-split.html" rel="bookmark" title="link to hjsplit and linux split">hjsplit and linux split</a></h2>
+                <footer class="post-info">
+                    <address class="vcard author">By
+                        <a class="url fn" href="../author/admin.html">admin</a>
+                    </address>
+                    <abbr class="published" title="2009-06-23T00:58:00+05:30">  on 23.06.2009 </abbr>
+                </footer><!-- /.post-info -->
+	    </header>
+                <div class="entry-content"> <p>The other day I had to fit in a 4.4 GB file (A Debian testing dvd iso
+image, if you want to know) on a 4 GB thumb drive. This, of course, is
+not possible. So I had to split the file into chunks, transfer them
+twice, take them …</p> </div><!-- /.entry-content -->
+        </article></li>
+</ul><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 1
+</p>
+</section><!-- /#content -->
+      <footer>
+	  <a href="../pages/about.html" >About</a>
+	  <div class="right-footer">
+	  <a href="../categories.html" >Categories</a>
+	  <a href="../tags.html" >Tags</a>
+	  </div>
+      </footer>
+</body>
+</html>

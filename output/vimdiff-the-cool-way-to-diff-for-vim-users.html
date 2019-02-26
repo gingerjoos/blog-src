@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dreams of thought</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/theme/slicknav.css">
+    <script src="/theme/jquery.slicknav.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+<script>
+	$(function(){
+		$('#menu').slicknav({'label':''});
+	});
+</script>
+<link rel="icon" href="/theme/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="114x114" href="/theme/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/theme/favicon152.png">
+<link rel="apple-touch-icon" sizes="196x196" href="/theme/favicon196.png">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<nav class="byline"><ul id="menu">
+        </ul></nav><!-- /#menu -->
+        <div class="downloads">
+          <a href="#" class="fa fa-Twitter"></a>
+          <a href="#" class="fa fa-Github"></a>
+        </div>
+        <hgroup>
+          <h1>vimdiff - the cool way to diff for vim users</h1>
+  <footer class="article-footer">
+    <address class="vcard author">
+      By           <a class="url fn" href="./author/admin.html">admin</a>
+    </address>
+    <abbr class="published" title="2009-10-20T21:30:00+05:30">
+       on 20.10.2009
+    </abbr>
+  </footer><!-- /.post-info -->
+        </hgroup>
+  
+
+
+    <meta name="tags" contents="diff" />
+    <meta name="tags" contents="Linux" />
+    <meta name="tags" contents="unix" />
+    <meta name="tags" contents="vim" />
+    <meta name="tags" contents="vimdiff" />
+
+      </header>
+<section id="content" class="body article">
+  <div class="entry-content">
+    <p>Some of you using the vim editor may not know about a tool that comes
+with vim called vimdiff. Vimdiff is an awesome way to diff files if you
+are a vim nut. It gives you the power of vim + the power of diff.</p>
+<p>How's this different from opening 2 files in vim (with -O option) you
+ask ? The difference is that vim will highlight the diff for you.</p>
+<p>Fire it up by giving the 2 filenames, say</p>
+<p><tt class="docutils literal">$vimdiff old new</tt></p>
+<p>This will bring up a screen like this -</p>
+<p>[caption id=&quot;&quot; align=&quot;aligncenter&quot; width=&quot;512&quot;
+caption=&quot;vimdiff&quot;]<a class="reference external" href="http://gingerjoos.com/images/vimdiff1.png"><img alt="vimdiff" src="http://gingerjoos.com/images/vimdiff1.png" /></a>[/caption]</p>
+<p>Now you can move around the 2 parts of the screen with your regular vim
+commands. For eg. use (Ctrl+w) + right arrow to move to the right half
+of the screen.</p>
+<p>[caption id=&quot;&quot; align=&quot;aligncenter&quot; width=&quot;512&quot; caption=&quot;vimdiff with
+cursor on right half of screen&quot;]<a class="reference external" href="http://gingerjoos.com/images/vimdiff2.png"><img alt="vimdiff with cursor on right half of screen" src="http://gingerjoos.com/images/vimdiff2.png" /></a>[/caption]</p>
+<p>You can copy paste as well. Go to the 2nd line in the left half and
+press the y key twice to copy that line. Use (cntrl + w) + right arrow
+to move cursor to the 1st line in the right half of the screen. Press p
+to paste the copied line below the 1st line.</p>
+<p>[caption id=&quot;&quot; align=&quot;aligncenter&quot; width=&quot;512&quot; caption=&quot;vimdiff with
+copy paste&quot;]<a class="reference external" href="http://gingerjoos.com/images/vimdiff3.png"><img alt="vimdiff with copy paste" src="http://gingerjoos.com/images/vimdiff3.png" /></a>[/caption]</p>
+<p>You can go to the first line and delete the two words &quot;a new&quot; by moving
+the cursor to &quot;a&quot; and hitting d2w key combo.</p>
+<p>[caption id=&quot;&quot; align=&quot;aligncenter&quot; width=&quot;512&quot; caption=&quot;vimdiff deletes
+words&quot;]<a class="reference external" href="http://gingerjoos.com/images/vimdiff4.png"><img alt="vimdiff deletes words" src="http://gingerjoos.com/images/vimdiff4.png" /></a>[/caption]</p>
+<p>Insert &quot;an old&quot; there by going to insert mode(press i key) and then
+typing the two words. You'll see that vimdiff does not highlight
+anything. This means that there is no difference between the two files.</p>
+<p>[caption id=&quot;&quot; align=&quot;aligncenter&quot; width=&quot;512&quot; caption=&quot;two files with
+no difference in vimdiff&quot;]<a class="reference external" href="http://gingerjoos.com/images/vimdiff5.png"><img alt="two files with no difference in vimdiff" src="http://gingerjoos.com/images/vimdiff5.png" /></a>[/caption]</p>
+<p>Vimdiff is the same as bringing up vim with the -d option. You could do
+the same things you did above by using</p>
+<p><tt class="docutils literal">$vim <span class="pre">-d</span> old new</tt></p>
+<div class="line-block">
+<div class="line">Bonus :</div>
+<div class="line">You can also diff 2 URLs directly with vimdiff</div>
+<div class="line">Try</div>
+<div class="line"><br /></div>
+<div class="line"><tt class="docutils literal">$vimdiff <span class="pre">'http://www.google.co.in/search?q=vimdiff'</span> <span class="pre">'http://www.google.co.in/search?q=vim'</span></tt></div>
+<div class="line">You'll first see something like this coming on screen</div>
+<div class="line">`` :!curl -o '/tmp/v959288/1' '<a class="reference external" href="http://www.google.co.in/search">http://www.google.co.in/search</a>?q=vimdiff' % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current Dload  Upload   Total   Spent    Left  Speed &quot;/tmp/v959288/1&quot; 4L, 5289C :!curl -o '/tmp/v959288/2' '<a class="reference external" href="http://www.google.co.in/search">http://www.google.co.in/search</a>?q=vim' % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current Dload  Upload   Total   Spent    Left  Speed &quot;/tmp/v959288/2&quot; 4L, 5253C Press ENTER or type command to continue``</div>
+<div class="line">Now press the ENTER key to see the diff</div>
+</div>
+<p>[caption id=&quot;&quot; align=&quot;aligncenter&quot; width=&quot;512&quot; caption=&quot;vimdiff also
+works directly with URLs&quot;]<a class="reference external" href="http://gingerjoos.com/images/vimdiff6.png"><img alt="vimdiff also works directly with URLs" src="http://gingerjoos.com/images/vimdiff6.png" /></a>[/caption]</p>
+<div class="line-block">
+<div class="line">You can throw in ssh into the mix as well. Try something like this</div>
+<div class="line"><tt class="docutils literal">$vimdiff old &lt;(ssh user&#64;host cat ~/new)</tt></div>
+</div>
+<p>If you're a vim/vimdiff ninja and know some more tricks, do post them
+below :)</p>
+<p>Happy hacking...</p>
+
+  </div><!-- /.entry-content -->
+  <div class="article-share-tags">
+  <div class="end-article-tags">
+      <i class="fa fa-tags"></i>
+      <a href="./tag/diff.html">diff</a>
+      <a href="./tag/linux.html">Linux</a>
+      <a href="./tag/unix.html">unix</a>
+      <a href="./tag/vim.html">vim</a>
+      <a href="./tag/vimdiff.html">vimdiff</a>
+  </div>
+  <div class='article-share'>
+      share -
+  </div>
+  </div>
+</section>
+<div class="neighbors">
+</div>
+      <footer>
+	  <a href="./pages/about.html" >About</a>
+	  <div class="right-footer">
+	  <a href="./categories.html" >Categories</a>
+	  <a href="./tags.html" >Tags</a>
+	  </div>
+      </footer>
+</body>
+</html>

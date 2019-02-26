@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dreams of thought</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/theme/slicknav.css">
+    <script src="/theme/jquery.slicknav.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+<script>
+	$(function(){
+		$('#menu').slicknav({'label':''});
+	});
+</script>
+<link rel="icon" href="/theme/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="114x114" href="/theme/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/theme/favicon152.png">
+<link rel="apple-touch-icon" sizes="196x196" href="/theme/favicon196.png">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<nav class="byline"><ul id="menu">
+        </ul></nav><!-- /#menu -->
+        <div class="downloads">
+          <a href="#" class="fa fa-Twitter"></a>
+          <a href="#" class="fa fa-Github"></a>
+        </div>
+        <hgroup>
+          <h1>How to log requests to specific paths on Apache</h1>
+  <footer class="article-footer">
+    <address class="vcard author">
+      By           <a class="url fn" href="./author/admin.html">admin</a>
+    </address>
+    <abbr class="published" title="2011-06-23T16:55:00+05:30">
+       on 23.06.2011
+    </abbr>
+  </footer><!-- /.post-info -->
+        </hgroup>
+  
+
+
+    <meta name="tags" contents="apache" />
+
+      </header>
+<section id="content" class="body article">
+  <div class="entry-content">
+    <p>It is possible to log requests to specific paths of your website in your
+Apache log. Imagine you need to log all access requests to
+www.example.com/widgets/ path and whatever is under it in a separate
+file. You can use a combination of the
+<a class="reference external" href="http://httpd.apache.org/docs/current/mod/mod_log_config.html#customlog">CustomLog</a>
+directive and
+<a class="reference external" href="http://httpd.apache.org/docs/2.2/mod/mod_setenvif.html#setenvif">SetEnvIf</a>
+directive to achieve this. The SetEnvIf directive needs the
+mod_setenvif module enabled.</p>
+<p>On a Linux machine you can do this by using the a2enmod command. On my
+Ubuntu I ran</p>
+<p><tt class="docutils literal">$sudo a2enmod setenvif</tt></p>
+<p>On a Windows machine you probably need to edit the httpd.conf file in
+the conf directory of your Apache installation directory.</p>
+<p>Once this module is enabled you can issue such directives from your
+VirtualHost configuration.</p>
+<p>The CustomLog directive allows you to specify how and where logging
+should be done. The last parameter that this directive takes is an
+environment variable. This environment variable can be set the with
+SetEnvIf directive conditionally. What you would do inside the
+VirtualHost definition of the domain is something like this</p>
+<p>`` SetEnvIf Request_URI '^/widgets/' widget_page=yes``</p>
+<p>`` ``</p>
+<p><tt class="docutils literal">CustomLog <span class="pre">${APACHE_LOG_DIR}/widgets.example.log</span> combined env=widget_page</tt></p>
+<p>The SetEnvIf module above sets the widget_page variable as yes if the
+Request URI matches the regular expression '^/widgets/'. The CustomLog
+directive below it directs Apache to log a request in the combined
+format if the widget_page variable is set.</p>
+
+  </div><!-- /.entry-content -->
+  <div class="article-share-tags">
+  <div class="end-article-tags">
+      <i class="fa fa-tag"></i>
+      <a href="./tag/apache.html">apache</a>
+  </div>
+  <div class='article-share'>
+      share -
+  </div>
+  </div>
+</section>
+<div class="neighbors">
+</div>
+      <footer>
+	  <a href="./pages/about.html" >About</a>
+	  <div class="right-footer">
+	  <a href="./categories.html" >Categories</a>
+	  <a href="./tags.html" >Tags</a>
+	  </div>
+      </footer>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dreams of thought</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/theme/slicknav.css">
+    <script src="/theme/jquery.slicknav.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+<script>
+	$(function(){
+		$('#menu').slicknav({'label':''});
+	});
+</script>
+<link rel="icon" href="/theme/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="114x114" href="/theme/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/theme/favicon152.png">
+<link rel="apple-touch-icon" sizes="196x196" href="/theme/favicon196.png">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<nav class="byline"><ul id="menu">
+        </ul></nav><!-- /#menu -->
+        <div class="downloads">
+          <a href="#" class="fa fa-Twitter"></a>
+          <a href="#" class="fa fa-Github"></a>
+        </div>
+        <hgroup>
+          <h1>Pirate tweet</h1>
+  <footer class="article-footer">
+    <address class="vcard author">
+      By           <a class="url fn" href="./author/admin.html">admin</a>
+    </address>
+    <abbr class="published" title="2009-09-28T12:41:00+05:30">
+       on 28.09.2009
+    </abbr>
+  </footer><!-- /.post-info -->
+        </hgroup>
+  
+
+
+    <meta name="tags" contents="International Talk Like a Pirate Day" />
+    <meta name="tags" contents="libcurl" />
+    <meta name="tags" contents="php" />
+    <meta name="tags" contents="pirate tweet" />
+    <meta name="tags" contents="piratespeak" />
+    <meta name="tags" contents="simplexml" />
+    <meta name="tags" contents="twitter" />
+    <meta name="tags" contents="yahoo" />
+    <meta name="tags" contents="yql" />
+
+      </header>
+<section id="content" class="body article">
+  <div class="entry-content">
+    <p>September 19 is <a class="reference external" href="http://en.wikipedia.org/wiki/International_Talk_Like_a_Pirate_Day">International Talk Like a Pirate
+Day</a>.For
+this day, the <a class="reference external" href="http://developer.yahoo.com/yql/">Yahoo! Query
+Language</a> (YQL) team <a class="reference external" href="http://developer.yahoo.net/blog/archives/2009/09/ahoy_mates_conv.html">announced on
+the YDN blog that they were bringing out a &quot;pirate
+table&quot;</a>.
+This table would allow us to translate plain English to piratespeak
+using YQL. I had been meaning to play around with YQL a bit and took
+this opportunity to dive in. I couldn't complete it in time for
+September 19 because of work, but managed to finally get it in some
+shape today. What I made is something I call &quot;Pirate Tweet&quot;.</p>
+<p><a class="reference external" href="http://labs.gingerjoos.com/piratetweet/">Pirate tweet</a> allows you to
+<a class="reference external" href="http://labs.gingerjoos.com/piratetweet/">read your most recent tweets in
+piratespeak</a>. Just enter a
+twitter username and you get the tweets in piratespeak. You can get the
+source at <a class="reference external" href="http://labs.gingerjoos.com/piratetweet/piratetweet.tar.gz">http://labs.gingerjoos.com/piratetweet/piratetweet.tar.gz</a> .
+Please do link back to this post if you do use it. It is written in PHP
+and uses PHP's builtin SimpleXML as well as libcurl. What is in there is
+just a rough basic barebones quick-and-dirty stuff. It includes an
+index.php file which takes care of spitting out the actual html. The
+common.php file does the actual processing. pirate-tweet.css file is
+some very basic css.</p>
+<div class="line-block">
+<div class="line">The twitter RSS feed for a user is something like <a class="reference external" href="http://twitter.com/statuses/user_timeline/USERNAME.rss">http://twitter.com/statuses/user_timeline/USERNAME.rss</a> . This is fed into the YQL query which does the translation, like this</div>
+<div class="line-block">
+<div class="line">SELECT * FROM piratespeak.translate</div>
+<div class="line">WHERE html IN</div>
+<div class="line">(SELECT description FROM rss</div>
+<div class="line">WHERE url = &quot;<a class="reference external" href="http://twitter.com/statuses/user_timeline/USERNAME.rss">http://twitter.com/statuses/user_timeline/USERNAME.rss</a>&quot;)</div>
+<div class="line">So you send this query to <a class="reference external" href="http://query.yahooapis.com/v1/public/yql">http://query.yahooapis.com/v1/public/yql</a> with the params</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">$params = array ( 'q'      =&gt; $query, 'format' =&gt; 'xml', 'env'    =&gt; 'store://kid666.com/piratespeak', );</div>
+</div>
+<p>So that's basically what it does. Hope someone finds this useful :)</p>
+<p>I must say that YQL seems like a very interesting tool. Hopefully the MS
+- Yahoo! deal will have no negative impact on it. Without doubt, YQL is
+the star in Yahoo!'s products for developers. The ability to express
+data as queries is mind - blowing. Looking forward to doing more stuff
+with YQL.</p>
+<p>Known issues :</p>
+<p>Even links are passed as is to the YQL query. This results in, for
+example, <a class="reference external" href="http://is.gd/3oBWf">http://is.gd/3oBWf</a> to become <a class="reference external" href="http://be.gd/3oBWf">http://be.gd/3oBWf</a> .</p>
+<div class="line-block">
+<div class="line">Acknowledgment :</div>
+<div class="line-block">
+<div class="line">Much thanks to the <a class="reference external" href="http://developer.yahoo.com/yql/">YQL</a> guys at Yahoo! and their <a class="reference external" href="http://developer.yahoo.com/yql/guide/">wonderful documentation</a>.</div>
+</div>
+</div>
+<p>Also see :</p>
+<p><a class="reference external" href="http://developer.yahoo.net/blog/archives/2009/09/ahoy_mates_conv.html">Previously mentioned blog
+post</a>
+has some more stuff using the same table.</p>
+<p><a class="reference external" href="http://www.wait-till-i.com/2009/09/17/tools-for-talk-like-a-pirate-day/">Chris
+Heilmann</a>
+made some stuff with the table as well. Do check it out.</p>
+
+  </div><!-- /.entry-content -->
+  <div class="article-share-tags">
+  <div class="end-article-tags">
+      <i class="fa fa-tags"></i>
+      <a href="./tag/international-talk-like-a-pirate-day.html">International Talk Like a Pirate Day</a>
+      <a href="./tag/libcurl.html">libcurl</a>
+      <a href="./tag/php.html">php</a>
+      <a href="./tag/pirate-tweet.html">pirate tweet</a>
+      <a href="./tag/piratespeak.html">piratespeak</a>
+      <a href="./tag/simplexml.html">simplexml</a>
+      <a href="./tag/twitter.html">twitter</a>
+      <a href="./tag/yahoo.html">yahoo</a>
+      <a href="./tag/yql.html">yql</a>
+  </div>
+  <div class='article-share'>
+      share -
+  </div>
+  </div>
+</section>
+<div class="neighbors">
+</div>
+      <footer>
+	  <a href="./pages/about.html" >About</a>
+	  <div class="right-footer">
+	  <a href="./categories.html" >Categories</a>
+	  <a href="./tags.html" >Tags</a>
+	  </div>
+      </footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dreams of thought</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/theme/slicknav.css">
+    <script src="/theme/jquery.slicknav.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+<script>
+	$(function(){
+		$('#menu').slicknav({'label':''});
+	});
+</script>
+<link rel="icon" href="/theme/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="114x114" href="/theme/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/theme/favicon152.png">
+<link rel="apple-touch-icon" sizes="196x196" href="/theme/favicon196.png">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<nav class="byline"><ul id="menu">
+        </ul></nav><!-- /#menu -->
+        <div class="downloads">
+          <a href="#" class="fa fa-Twitter"></a>
+          <a href="#" class="fa fa-Github"></a>
+        </div>
+        <hgroup>
+          <h1>How to solve the &quot;local edit, incoming delete upon update&quot; issue in SVN</h1>
+  <footer class="article-footer">
+    <address class="vcard author">
+      By           <a class="url fn" href="./author/admin.html">admin</a>
+    </address>
+    <abbr class="published" title="2011-08-11T14:46:00+05:30">
+       on 11.08.2011
+    </abbr>
+  </footer><!-- /.post-info -->
+        </hgroup>
+  
+
+
+    <meta name="tags" contents="svn" />
+
+      </header>
+<section id="content" class="body article">
+  <div class="entry-content">
+    <p>When I removed a file from
+<a class="reference external" href="http://en.wikipedia.org/wiki/Apache_Subversion">svn</a> it caused me
+lot of problems. This particular file was in CamelCase and I needed to
+replace it with a file in lower case. I svn deleted the CamelCase file
+and committed a copy of the lower case file. All this happened in a
+windows system. When I updated the checked out branch I got the error :</p>
+<div class="line-block">
+<div class="line">At revision 17582.</div>
+<div class="line-block">
+<div class="line">!&nbsp; +&nbsp; C FooBar.php</div>
+<div class="line">&gt;&nbsp;&nbsp; local edit, incoming delete upon update</div>
+</div>
+</div>
+<p>Multiple attempts at svn cleanup, svn update etc. failed. I came across
+this <a class="reference external" href="http://stackoverflow.com/questions/4317973/svn-how-to-resolve-local-edit-incoming-delete-upon-update-message">stack overflow
+thread</a>
+which recommended svn resolve. This did not work for me. Further down
+the thread I came across another solution which worked.</p>
+<ol class="arabic simple">
+<li>create FooBar.php ( $touch FooBar.php )</li>
+<li>svn revert it ( $svn revert FooBar.php )</li>
+<li>Check status ( $svn status ) . It should say ?FooBar.php</li>
+<li>Now remove FooBar.php ( $rm FooBar.php )</li>
+</ol>
+<p>That's it, you're done :)</p>
+
+  </div><!-- /.entry-content -->
+  <div class="article-share-tags">
+  <div class="end-article-tags">
+      <i class="fa fa-tag"></i>
+      <a href="./tag/svn.html">svn</a>
+  </div>
+  <div class='article-share'>
+      share -
+  </div>
+  </div>
+</section>
+<div class="neighbors">
+</div>
+      <footer>
+	  <a href="./pages/about.html" >About</a>
+	  <div class="right-footer">
+	  <a href="./categories.html" >Categories</a>
+	  <a href="./tags.html" >Tags</a>
+	  </div>
+      </footer>
+</body>
+</html>

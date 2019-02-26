@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dreams of thought</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/theme/slicknav.css">
+    <script src="/theme/jquery.slicknav.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+<script>
+	$(function(){
+		$('#menu').slicknav({'label':''});
+	});
+</script>
+<link rel="icon" href="/theme/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="114x114" href="/theme/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/theme/favicon152.png">
+<link rel="apple-touch-icon" sizes="196x196" href="/theme/favicon196.png">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<nav class="byline"><ul id="menu">
+        </ul></nav><!-- /#menu -->
+        <div class="downloads">
+          <a href="#" class="fa fa-Twitter"></a>
+          <a href="#" class="fa fa-Github"></a>
+        </div>
+        <hgroup>
+          <h1>apt-get with proxy</h1>
+  <footer class="article-footer">
+    <address class="vcard author">
+      By           <a class="url fn" href="./author/admin.html">admin</a>
+    </address>
+    <abbr class="published" title="2011-08-01T17:50:00+05:30">
+       on 01.08.2011
+    </abbr>
+  </footer><!-- /.post-info -->
+        </hgroup>
+  
+
+
+
+      </header>
+<section id="content" class="body article">
+  <div class="entry-content">
+    <p>You will notice that the proxy settings you provide in the network
+settings may not be picked up by apt-get while installing a package. So
+if you want to run apt-get via a proxy then you need to use a tool like
+proxychains. Proxychains is a tool that allow you to run a command via a
+proxy even if the command itself does not support proxies. You can
+install proxychains by running apt-get install proxychains. In case this
+is not possible for you, then get the proxychains tarball from the
+<a class="reference external" href="http://proxychains.sourceforge.net/">proxychains site</a>.Compile and
+install - it's very simple to do. Just run ./configure and then make and
+make install. Run make install as root.</p>
+<p>Once this is done you have proxychains installed in your system.
+Proxychains takes its settings from one of 3 files :</p>
+<div class="line-block">
+<div class="line">1)&nbsp;&nbsp;&nbsp; ./proxychains.conf</div>
+<div class="line-block">
+<div class="line">2)&nbsp;&nbsp;&nbsp; $(HOME)/.proxychains/proxychains.conf</div>
+<div class="line">3)&nbsp;&nbsp;&nbsp; /etc/proxychains.conf</div>
+</div>
+</div>
+<p>I edited the /etc/proxychains.conf file directly. I have a SOCKS5 proxy
+running on localhost over port 8080. So I add an entry towards the end
+like this -</p>
+<p>socks5&nbsp; 127.0.0.1 8080</p>
+<p>Once you have this and have your socks proxy running, you're ready to
+start running your commands. Imagine you want to run apt-get update.
+This is how it would be done -</p>
+<p>$ sudo proxychains apt-get upgrade</p>
+<p>That's it :)</p>
+
+  </div><!-- /.entry-content -->
+  <div class="article-share-tags">
+  <div class="end-article-tags">
+  </div>
+  <div class='article-share'>
+      share -
+  </div>
+  </div>
+</section>
+<div class="neighbors">
+</div>
+      <footer>
+	  <a href="./pages/about.html" >About</a>
+	  <div class="right-footer">
+	  <a href="./categories.html" >Categories</a>
+	  <a href="./tags.html" >Tags</a>
+	  </div>
+      </footer>
+</body>
+</html>

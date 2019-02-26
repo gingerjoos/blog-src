@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dreams of thought</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/theme/slicknav.css">
+    <script src="/theme/jquery.slicknav.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+<script>
+	$(function(){
+		$('#menu').slicknav({'label':''});
+	});
+</script>
+<link rel="icon" href="/theme/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="114x114" href="/theme/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/theme/favicon152.png">
+<link rel="apple-touch-icon" sizes="196x196" href="/theme/favicon196.png">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<nav class="byline"><ul id="menu">
+        </ul></nav><!-- /#menu -->
+        <div class="downloads">
+          <a href="#" class="fa fa-Twitter"></a>
+          <a href="#" class="fa fa-Github"></a>
+        </div>
+        <hgroup>
+          <h1>User agent GTB or GTB5 is the Google Toolbar</h1>
+  <footer class="article-footer">
+    <address class="vcard author">
+      By           <a class="url fn" href="./author/admin.html">admin</a>
+    </address>
+    <abbr class="published" title="2009-10-05T23:02:00+05:30">
+       on 05.10.2009
+    </abbr>
+  </footer><!-- /.post-info -->
+        </hgroup>
+  
+
+
+    <meta name="tags" contents="google" />
+    <meta name="tags" contents="user agent" />
+
+      </header>
+<section id="content" class="body article">
+  <div class="entry-content">
+    <p>Was checking out this blog's visitor stats recently when I came across
+this User Agent
+<tt class="docutils literal">&quot;Mozilla/5.0 (X11; U; Linux i686; <span class="pre">en-US;</span> rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 GTB5&quot;</tt>.
+I was wondering what GTB5 was. Some googling and testing later I found
+out that GTB is in fact the Google Toolbar. To compare, here's the UA of
+a Firefox browser with Google Toolbar installed :</p>
+<p><tt class="docutils literal">&quot;Mozilla/5.0 (X11; U; Linux i686; <span class="pre">en-US;</span> rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 GTB5&quot;</tt></p>
+<p>And here's another Firefox without it :</p>
+<p><tt class="docutils literal">&quot;Mozilla/5.0 (Windows; U; Windows NT 6.0; <span class="pre">en-GB;</span> rv:1.9.1.3) Gecko/20090824 Firefox/3.5.3 (.NET CLR 3.5.30729)&quot;</tt></p>
+<p>Also, if you plan to capture the UA string in the Apache logs, make sure
+that feature is turned on. Your <a class="reference external" href="http://httpd.apache.org/docs/2.0/mod/mod_log_config.html#logformat">LogFormat
+directive</a>
+must have something like <tt class="docutils literal"><span class="pre">\&quot;%{User-Agent}i\&quot;</span></tt> in it. For eg,</p>
+<p><tt class="docutils literal">LogFormat &quot;%h %l %u %t <span class="pre">\&quot;%r\&quot;</span> %&gt;s %b <span class="pre">\&quot;%{Referer}i\&quot;</span> <span class="pre">\&quot;%{User-Agent}i\&quot;&quot;</span> combined</tt></p>
+<p>You can check the <a class="reference external" href="http://httpd.apache.org/docs/2.0/mod/mod_log_config.html#formats">Apache documentation on custom log
+formats</a>
+for more info. If you're using XAMPP/LAMPP, you might want to comment
+out</p>
+<p><tt class="docutils literal">CustomLog logs/access_log common</tt></p>
+<p>line in your httpd.conf and uncomment</p>
+<p><tt class="docutils literal">CustomLog logs/access_log combined</tt></p>
+<p>line.</p>
+
+  </div><!-- /.entry-content -->
+  <div class="article-share-tags">
+  <div class="end-article-tags">
+      <i class="fa fa-tags"></i>
+      <a href="./tag/google.html">google</a>
+      <a href="./tag/user-agent.html">user agent</a>
+  </div>
+  <div class='article-share'>
+      share -
+  </div>
+  </div>
+</section>
+<div class="neighbors">
+</div>
+      <footer>
+	  <a href="./pages/about.html" >About</a>
+	  <div class="right-footer">
+	  <a href="./categories.html" >Categories</a>
+	  <a href="./tags.html" >Tags</a>
+	  </div>
+      </footer>
+</body>
+</html>

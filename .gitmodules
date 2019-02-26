@@ -1,0 +1,3 @@
+[submodule "themes/martin-pelican"]
+	path = themes/martin-pelican
+	url = https://github.com/cpaulik/martin-pelican.git

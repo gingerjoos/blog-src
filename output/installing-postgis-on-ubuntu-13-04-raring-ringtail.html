@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dreams of thought</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/theme/slicknav.css">
+    <script src="/theme/jquery.slicknav.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+<script>
+	$(function(){
+		$('#menu').slicknav({'label':''});
+	});
+</script>
+<link rel="icon" href="/theme/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="114x114" href="/theme/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/theme/favicon152.png">
+<link rel="apple-touch-icon" sizes="196x196" href="/theme/favicon196.png">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<nav class="byline"><ul id="menu">
+        </ul></nav><!-- /#menu -->
+        <div class="downloads">
+          <a href="#" class="fa fa-Twitter"></a>
+          <a href="#" class="fa fa-Github"></a>
+        </div>
+        <hgroup>
+          <h1>Installing PostGIS on Ubuntu 13.04 Raring Ringtail</h1>
+  <footer class="article-footer">
+    <address class="vcard author">
+      By           <a class="url fn" href="./author/admin.html">admin</a>
+    </address>
+    <abbr class="published" title="2013-08-02T18:49:00+05:30">
+       on 02.08.2013
+    </abbr>
+  </footer><!-- /.post-info -->
+        </hgroup>
+  
+
+
+    <meta name="tags" contents="postgis" />
+    <meta name="tags" contents="postgres" />
+    <meta name="tags" contents="raring" />
+    <meta name="tags" contents="ubuntu" />
+
+      </header>
+<section id="content" class="body article">
+  <div class="entry-content">
+    <p>It's as simple as</p>
+<pre class="literal-block">
+sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+sudo apt-get install postgresql-9.1-postgis-2.0-scripts
+</pre>
+<p>You might see alternate instructions asking you to install <a class="reference external" href="https://launchpad.net/~sharpie/+archive/postgis-stable">Sharpie's
+PPA</a>, but it
+works only for Ubuntu Precise. The instructions in the <a class="reference external" href="http://trac.osgeo.org/postgis/wiki/UsersWikiPostGIS20Ubuntu1304">PostGIS trac
+wiki</a>
+is also broken ‐ you will get an error like so :</p>
+<pre class="literal-block">
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ postgis : Depends: libgdal1h (&gt;= 1.9.0) but it is not going to be installed
+E: Unable to correct problems, you have held broken packages.
+</pre>
+<p>This problem has been raised and a <a class="reference external" href="http://trac.osgeo.org/osgeo/ticket/1154#comment:12">solution found in the PostGIS Trac
+Issue tracker</a>.
+The first two lines are what needs to be done.</p>
+
+  </div><!-- /.entry-content -->
+  <div class="article-share-tags">
+  <div class="end-article-tags">
+      <i class="fa fa-tags"></i>
+      <a href="./tag/postgis.html">postgis</a>
+      <a href="./tag/postgres.html">postgres</a>
+      <a href="./tag/raring.html">raring</a>
+      <a href="./tag/ubuntu.html">ubuntu</a>
+  </div>
+  <div class='article-share'>
+      share -
+  </div>
+  </div>
+</section>
+<div class="neighbors">
+</div>
+      <footer>
+	  <a href="./pages/about.html" >About</a>
+	  <div class="right-footer">
+	  <a href="./categories.html" >Categories</a>
+	  <a href="./tags.html" >Tags</a>
+	  </div>
+      </footer>
+</body>
+</html>

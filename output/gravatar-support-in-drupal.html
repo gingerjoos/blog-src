@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dreams of thought</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/theme/slicknav.css">
+    <script src="/theme/jquery.slicknav.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+<script>
+	$(function(){
+		$('#menu').slicknav({'label':''});
+	});
+</script>
+<link rel="icon" href="/theme/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="114x114" href="/theme/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/theme/favicon152.png">
+<link rel="apple-touch-icon" sizes="196x196" href="/theme/favicon196.png">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<nav class="byline"><ul id="menu">
+        </ul></nav><!-- /#menu -->
+        <div class="downloads">
+          <a href="#" class="fa fa-Twitter"></a>
+          <a href="#" class="fa fa-Github"></a>
+        </div>
+        <hgroup>
+          <h1>Gravatar support  in Drupal</h1>
+  <footer class="article-footer">
+    <address class="vcard author">
+      By           <a class="url fn" href="./author/admin.html">admin</a>
+    </address>
+    <abbr class="published" title="2009-11-04T19:22:00+05:30">
+       on 04.11.2009
+    </abbr>
+  </footer><!-- /.post-info -->
+        </hgroup>
+  
+
+
+    <meta name="tags" contents="drupal" />
+    <meta name="tags" contents="gravatar" />
+
+      </header>
+<section id="content" class="body article">
+  <div class="entry-content">
+    <p>If you've been using Wordpress you probably know about Gravatar.
+Gravatar is an abbreviation for &quot;Globally Recognized Avatar&quot;. It's a
+service which provides an avatar across sites. While Gravatar support is
+built-in in Wordpress, it requires an external module to be installed in
+Drupal. Recently I had to use the module in a Drupal 5 instance.</p>
+<p>The module provides a gravatar only for comments. You can have the
+module insert the gravatar into the comment body itself or have it
+provide a field in the comment object ($comment-&gt;gravatar) which can be
+used by the theme. It does this by using the hook_comment() .</p>
+<p>In our case though, we needed it to show the gravatar instead of the
+user picture if the user had not uploaded any. This was very easy to do.
+The key function here is _gravatar_get_gravatar(). You can provide it
+any or all of these parameters - mail, default, size or rating. Mail is
+the email id of the user. Gravatar can supply a unique generated avatar
+in case the email id you send them is not that of a registered Gravatar
+user. This can be of many types - identicon, wavatar or monsterid. Which
+of these are what you want, is specified in the default parameter. The
+size is of course, the size. The gravatars uploaded come with a rating -
+G, PG, R or X. You can specify a maximum rating with the rating
+parameter. You can read more about the <a class="reference external" href="http://en.gravatar.com/site/implement/url">gravatar
+parameters</a>.</p>
+<p>You can pass whichever of these parameters you want to
+_gravatar_get_gravatar() and it will return to you the url of the
+gravatar. Now pass this to the theme_gravatar() function in the
+gravatar module.</p>
+<div class="line-block">
+<div class="line">$picture = theme('gravatar',$gravatar_url,$username,$url);[/sourcecode]</div>
+<div class="line">You have to do all of this in the theme_user_picture function of
+your theme. If your theme is something like -</div>
+<div class="line">function THEMENAME_user_picture($account) {</div>
+<div class="line">if (variable_get('user_pictures', 0)) {</div>
+<div class="line">if ($account-&gt;picture &amp;&amp; file_exists($account-&gt;picture)) {</div>
+<div class="line">$picture = file_create_url($account-&gt;picture);</div>
+<div class="line">}</div>
+<div class="line">else if (variable_get('user_picture_default', '')) {</div>
+<div class="line">$picture = variable_get('user_picture_default', '');</div>
+<div class="line">}</div>
+</div>
+<div class="line-block">
+<div class="line">You could change it to something like -</div>
+<div class="line"><br /></div>
+<div class="line">function THEMENAME_user_picture($account) {</div>
+<div class="line-block">
+<div class="line">if (variable_get('user_pictures', 0)) {</div>
+<div class="line">if ($account-&gt;picture &amp;&amp; file_exists($account-&gt;picture)) {</div>
+<div class="line">$picture = file_create_url($account-&gt;picture);</div>
+</div>
+<div class="line">}</div>
+<div class="line">else if (user_access('use gravatar', $account) &amp;&amp;
+(!user_access('disable own gravatar', $account) ||
+!isset($account-&gt;gravatar) || $account-&gt;gravatar)) {</div>
+<div class="line">$picture = _gravatar_get_gravatar(array('mail' =&gt;
+$account-&gt;mail));</div>
+<div class="line">return theme('gravatar',$picture,$account-&gt;name,'');</div>
+<div class="line">}</div>
+<div class="line">else if (variable_get('user_picture_default', '')) {</div>
+<div class="line">$picture = variable_get('user_picture_default', '');</div>
+<div class="line">}</div>
+<div class="line">You could even rewrite the default theme_gravatar provided by the
+gravatar module with your own THEMENAME_gravatar theme function.</div>
+</div>
+
+  </div><!-- /.entry-content -->
+  <div class="article-share-tags">
+  <div class="end-article-tags">
+      <i class="fa fa-tags"></i>
+      <a href="./tag/drupal.html">drupal</a>
+      <a href="./tag/gravatar.html">gravatar</a>
+  </div>
+  <div class='article-share'>
+      share -
+  </div>
+  </div>
+</section>
+<div class="neighbors">
+</div>
+      <footer>
+	  <a href="./pages/about.html" >About</a>
+	  <div class="right-footer">
+	  <a href="./categories.html" >Categories</a>
+	  <a href="./tags.html" >Tags</a>
+	  </div>
+      </footer>
+</body>
+</html>

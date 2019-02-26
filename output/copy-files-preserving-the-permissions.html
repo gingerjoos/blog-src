@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dreams of thought</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/theme/slicknav.css">
+    <script src="/theme/jquery.slicknav.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+<script>
+	$(function(){
+		$('#menu').slicknav({'label':''});
+	});
+</script>
+<link rel="icon" href="/theme/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="114x114" href="/theme/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/theme/favicon152.png">
+<link rel="apple-touch-icon" sizes="196x196" href="/theme/favicon196.png">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<nav class="byline"><ul id="menu">
+        </ul></nav><!-- /#menu -->
+        <div class="downloads">
+          <a href="#" class="fa fa-Twitter"></a>
+          <a href="#" class="fa fa-Github"></a>
+        </div>
+        <hgroup>
+          <h1>Copy files preserving the permissions</h1>
+  <footer class="article-footer">
+    <address class="vcard author">
+      By           <a class="url fn" href="./author/admin.html">admin</a>
+    </address>
+    <abbr class="published" title="2009-10-01T20:52:00+05:30">
+       on 01.10.2009
+    </abbr>
+  </footer><!-- /.post-info -->
+        </hgroup>
+  
+
+
+    <meta name="tags" contents="commands" />
+    <meta name="tags" contents="copy files" />
+    <meta name="tags" contents="Linux" />
+    <meta name="tags" contents="preserve permissions" />
+    <meta name="tags" contents="unix" />
+
+      </header>
+<section id="content" class="body article">
+  <div class="entry-content">
+    <p>You might have come across a situation where your regular usage of the
+<a class="reference external" href="http://en.wikipedia.org/wiki/Cp_%28Unix%29">cp command</a> for copying
+files in your linux box was not enough because while copying you needed
+to preserve the permissions of the files. Fret not, for help is at hand.
+Take a look at the man page for cp :</p>
+<p><tt class="docutils literal"><span class="pre">-p</span> same as <span class="pre">--preserve=mode,ownership,timestamps</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">--preserve[=ATTR_LIST]</span> preserve the specified attributes (default: mode,ownership,timestamps), if possible additional attributes: context, links, all</tt></p>
+<p>So that's it. just use the -p flag to do the copying. Here's an example
+where I copy a single file while preserving permissions.</p>
+<p><tt class="docutils literal">cp <span class="pre">-p</span> oldfile ~/new_dest/</tt></p>
+<p>To copy a whole directory, I use the -r flag as well.</p>
+<p><tt class="docutils literal">cp <span class="pre">-rp</span> some_dir ~/new_dest/</tt></p>
+<p>You can use the --preserve flag to keep whatever attributes you need.
+For the record, there's one more related flag</p>
+<p>`` --no-preserve=ATTR_LIST               don't preserve the specified attributes``</p>
+
+  </div><!-- /.entry-content -->
+  <div class="article-share-tags">
+  <div class="end-article-tags">
+      <i class="fa fa-tags"></i>
+      <a href="./tag/commands.html">commands</a>
+      <a href="./tag/copy-files.html">copy files</a>
+      <a href="./tag/linux.html">Linux</a>
+      <a href="./tag/preserve-permissions.html">preserve permissions</a>
+      <a href="./tag/unix.html">unix</a>
+  </div>
+  <div class='article-share'>
+      share -
+  </div>
+  </div>
+</section>
+<div class="neighbors">
+</div>
+      <footer>
+	  <a href="./pages/about.html" >About</a>
+	  <div class="right-footer">
+	  <a href="./categories.html" >Categories</a>
+	  <a href="./tags.html" >Tags</a>
+	  </div>
+      </footer>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dreams of thought</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/theme/slicknav.css">
+    <script src="/theme/jquery.slicknav.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+<script>
+	$(function(){
+		$('#menu').slicknav({'label':''});
+	});
+</script>
+<link rel="icon" href="/theme/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="114x114" href="/theme/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/theme/favicon152.png">
+<link rel="apple-touch-icon" sizes="196x196" href="/theme/favicon196.png">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<nav class="byline"><ul id="menu">
+        </ul></nav><!-- /#menu -->
+        <div class="downloads">
+          <a href="#" class="fa fa-Twitter"></a>
+          <a href="#" class="fa fa-Github"></a>
+        </div>
+        <hgroup>
+          <h1>How I recovered my Thunderbird mail from backup</h1>
+  <footer class="article-footer">
+    <address class="vcard author">
+      By           <a class="url fn" href="./author/admin.html">admin</a>
+    </address>
+    <abbr class="published" title="2010-02-02T17:04:00+05:30">
+       on 02.02.2010
+    </abbr>
+  </footer><!-- /.post-info -->
+        </hgroup>
+  
+
+
+
+      </header>
+<section id="content" class="body article">
+  <div class="entry-content">
+    <p>So the best way to backup your mails from Thunderbird is to <a class="reference external" href="http://www.mozilla.org/support/thunderbird/profile#backup">copy your
+complete profile
+directory</a>.
+Follow these steps for <a class="reference external" href="http://www.mozilla.org/support/thunderbird/profile#move">restoring your
+mail</a>.</p>
+<p>The fool that I am, instead of copying the full profile directory I
+ended up backing up just the Mail subdirectory in the profile directory.
+It took me a while to figure out how to restore the backup, so I thought
+I would share it with you.</p>
+<p>The first thing you do is install Thunderbird (if you haven't already).
+Now Run( Windows : Start-&gt;Run or press Win key+r ; Mac/Linux - you're
+smart enough to know :P ) this command &quot;thunderbird.exe
+-profilemanager&quot;. Create a dummy profile - just have some dummy email
+address in there. Now exit Thunderbird.</p>
+<p>Next step is to <a class="reference external" href="http://www.mozilla.org/support/thunderbird/profile#locate">find your newly created profile
+directory</a>.
+Locate the Mail directory in there. Now you have to copy 2 files from
+your backup - both have the same name. One has a .msf extension and the
+other has no extension. I had created a separate thunderbird mail folder
+with a filter and I needed to backup just that one alone. So I just
+copied those 2 files (from the Inbox.sbd directory) and put them in the
+Local Folders subdirectory in the Mail directory (which already had
+empty files like Trash and Trash.msf).</p>
+<p>The file without extension - this is the actual mail file. It's in the
+<a class="reference external" href="http://en.wikipedia.org/wiki/Mbox">mbox</a> format. The other is an
+index file.</p>
+<p><strong>Acknowledgements :</strong></p>
+<p>I posted a <a class="reference external" href="http://vark.com/t/eee11d">question on Aardvark</a> -
+<a class="reference external" href="http://vark.com/t/eee11d">http://vark.com/t/eee11d</a>. I got replies from Shel and Moez. I would like
+to thank both of them for helping me out.</p>
+
+  </div><!-- /.entry-content -->
+  <div class="article-share-tags">
+  <div class="end-article-tags">
+  </div>
+  <div class='article-share'>
+      share -
+  </div>
+  </div>
+</section>
+<div class="neighbors">
+</div>
+      <footer>
+	  <a href="./pages/about.html" >About</a>
+	  <div class="right-footer">
+	  <a href="./categories.html" >Categories</a>
+	  <a href="./tags.html" >Tags</a>
+	  </div>
+      </footer>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dreams of thought</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/theme/slicknav.css">
+    <script src="/theme/jquery.slicknav.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+<script>
+	$(function(){
+		$('#menu').slicknav({'label':''});
+	});
+</script>
+<link rel="icon" href="/theme/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="114x114" href="/theme/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/theme/favicon152.png">
+<link rel="apple-touch-icon" sizes="196x196" href="/theme/favicon196.png">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<nav class="byline"><ul id="menu">
+        </ul></nav><!-- /#menu -->
+        <div class="downloads">
+          <a href="#" class="fa fa-Twitter"></a>
+          <a href="#" class="fa fa-Github"></a>
+        </div>
+        <hgroup>
+          <h1>Comparison of Google Public DNS and Open DNS response</h1>
+  <footer class="article-footer">
+    <address class="vcard author">
+      By           <a class="url fn" href="./author/admin.html">admin</a>
+    </address>
+    <abbr class="published" title="2009-12-05T13:03:00+05:30">
+       on 05.12.2009
+    </abbr>
+  </footer><!-- /.post-info -->
+        </hgroup>
+  
+
+
+    <meta name="tags" contents="dns" />
+    <meta name="tags" contents="google" />
+    <meta name="tags" contents="opendns" />
+
+      </header>
+<section id="content" class="body article">
+  <div class="entry-content">
+    <p><a class="reference external" href="http://googleblog.blogspot.com/2009/12/introducing-google-public-dns.html">Google announced</a>
+that it's making 2 <a class="reference external" href="http://code.google.com/speed/public-dns/">DNS servers available
+publicly</a>. The servers are
+8.8.8.8 and 8.8.4.4 . They've also given<a class="reference external" href="http://code.google.com/speed/public-dns/docs/using.html">configuration
+instructions</a>
+on their DNS page. I configured my /etc/resolv.conf to refer to Google's
+DNS. Before this I ran some quick tests using
+<a class="reference external" href="http://linux.die.net/man/1/dig">dig</a> to compare it with
+<a class="reference external" href="http://www.opendns.com/">OpenDNS</a>.
+|  [sourcecode language=&quot;text&quot;]
+|  $ dig &#64;208.67.222.222 gingerjoos.com</p>
+<div class="line-block">
+<div class="line">; &lt;&lt;&gt;&gt; DiG 9.4.2 &lt;&lt;&gt;&gt; &#64;208.67.222.222 gingerjoos.com</div>
+<div class="line-block">
+<div class="line">; (1 server found)</div>
+<div class="line">;; global options: printcmd</div>
+<div class="line">;; Got answer:</div>
+<div class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 1273</div>
+<div class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; QUESTION SECTION:</div>
+<div class="line-block">
+<div class="line">;gingerjoos.com. IN A</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; ANSWER SECTION:</div>
+<div class="line-block">
+<div class="line">gingerjoos.com. 14400 IN A 208.113.199.196</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; Query time: 751 msec</div>
+<div class="line-block">
+<div class="line">;; SERVER: 208.67.222.222#53(208.67.222.222)</div>
+<div class="line">;; WHEN: Fri Dec 4 09:13:58 2009</div>
+<div class="line">;; MSG SIZE rcvd: 48</div>
+</div>
+</div>
+<p>$ dig &#64;8.8.8.8 gingerjoos.com</p>
+<div class="line-block">
+<div class="line">; &lt;&lt;&gt;&gt; DiG 9.4.2 &lt;&lt;&gt;&gt; &#64;8.8.8.8 gingerjoos.com</div>
+<div class="line-block">
+<div class="line">; (1 server found)</div>
+<div class="line">;; global options: printcmd</div>
+<div class="line">;; Got answer:</div>
+<div class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 2594</div>
+<div class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; QUESTION SECTION:</div>
+<div class="line-block">
+<div class="line">;gingerjoos.com. IN A</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; ANSWER SECTION:</div>
+<div class="line-block">
+<div class="line">gingerjoos.com. 14400 IN A 208.113.199.196</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; Query time: 616 msec</div>
+<div class="line-block">
+<div class="line">;; SERVER: 8.8.8.8#53(8.8.8.8)</div>
+<div class="line">;; WHEN: Fri Dec 4 09:14:09 2009</div>
+<div class="line">;; MSG SIZE rcvd: 48</div>
+</div>
+</div>
+<p>$ dig &#64;8.8.4.4 gingerjoos.com</p>
+<div class="line-block">
+<div class="line">; &lt;&lt;&gt;&gt; DiG 9.4.2 &lt;&lt;&gt;&gt; &#64;8.8.4.4 gingerjoos.com</div>
+<div class="line-block">
+<div class="line">; (1 server found)</div>
+<div class="line">;; global options: printcmd</div>
+<div class="line">;; Got answer:</div>
+<div class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 34741</div>
+<div class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; QUESTION SECTION:</div>
+<div class="line-block">
+<div class="line">;gingerjoos.com. IN A</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; ANSWER SECTION:</div>
+<div class="line-block">
+<div class="line">gingerjoos.com. 14321 IN A 208.113.199.196</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; Query time: 123 msec</div>
+<div class="line-block">
+<div class="line">;; SERVER: 8.8.4.4#53(8.8.4.4)</div>
+<div class="line">;; WHEN: Fri Dec 4 09:15:28 2009</div>
+<div class="line">;; MSG SIZE rcvd: 48</div>
+<div class="line">[/sourcecode]</div>
+</div>
+</div>
+<p>Dig allows you to directly query a DNS server and get its reply. It
+shows stats from that query - response. The stat we're interested in is
+this one</p>
+<p><strong>;; Query time: 123 msec</strong></p>
+<p>The IP 208.67.222.222 is the address of the OpenDNS server. Let's try
+one more query</p>
+<p>[sourcecode language=&quot;text&quot;]</p>
+<p>$ dig &#64;208.67.222.222 mec.ac.in</p>
+<div class="line-block">
+<div class="line">; &lt;&lt;&gt;&gt; DiG 9.4.2 &lt;&lt;&gt;&gt; &#64;208.67.222.222 mec.ac.in</div>
+<div class="line-block">
+<div class="line">; (1 server found)</div>
+<div class="line">;; global options:&nbsp; printcmd</div>
+<div class="line">;; Got answer:</div>
+<div class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 44308</div>
+<div class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; QUESTION SECTION:</div>
+<div class="line-block">
+<div class="line">;mec.ac.in.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; ANSWER SECTION:</div>
+<div class="line-block">
+<div class="line">mec.ac.in.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 604800&nbsp; IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 210.212.232.132</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; Query time: 389 msec</div>
+<div class="line-block">
+<div class="line">;; SERVER: 208.67.222.222#53(208.67.222.222)</div>
+<div class="line">;; WHEN: Sat Dec&nbsp; 5 12:38:57 2009</div>
+<div class="line">;; MSG SIZE&nbsp; rcvd: 43</div>
+</div>
+</div>
+<p>$ dig &#64;8.8.8.8 mec.ac.in</p>
+<div class="line-block">
+<div class="line">; &lt;&lt;&gt;&gt; DiG 9.4.2 &lt;&lt;&gt;&gt; &#64;8.8.8.8 mec.ac.in</div>
+<div class="line-block">
+<div class="line">; (1 server found)</div>
+<div class="line">;; global options:&nbsp; printcmd</div>
+<div class="line">;; Got answer:</div>
+<div class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 56600</div>
+<div class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; QUESTION SECTION:</div>
+<div class="line-block">
+<div class="line">;mec.ac.in.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; ANSWER SECTION:</div>
+<div class="line-block">
+<div class="line">mec.ac.in.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 160448&nbsp; IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 210.212.232.131</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">;; Query time: 121 msec</div>
+<div class="line-block">
+<div class="line">;; SERVER: 8.8.8.8#53(8.8.8.8)</div>
+<div class="line">;; WHEN: Sat Dec&nbsp; 5 12:39:06 2009</div>
+<div class="line">;; MSG SIZE&nbsp; rcvd: 43</div>
+</div>
+</div>
+<p>[/sourcecode]</p>
+<p>You can try more queries and see for yourself. At least as of now Google
+DNS seems to be faster.</p>
+
+  </div><!-- /.entry-content -->
+  <div class="article-share-tags">
+  <div class="end-article-tags">
+      <i class="fa fa-tags"></i>
+      <a href="./tag/dns.html">dns</a>
+      <a href="./tag/google.html">google</a>
+      <a href="./tag/opendns.html">opendns</a>
+  </div>
+  <div class='article-share'>
+      share -
+  </div>
+  </div>
+</section>
+<div class="neighbors">
+</div>
+      <footer>
+	  <a href="./pages/about.html" >About</a>
+	  <div class="right-footer">
+	  <a href="./categories.html" >Categories</a>
+	  <a href="./tags.html" >Tags</a>
+	  </div>
+      </footer>
+</body>
+</html>
