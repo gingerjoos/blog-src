@@ -2,7 +2,8 @@ How to solve the "local edit, incoming delete upon update" issue in SVN
 #######################################################################
 :date: 2011-08-11 14:46
 :author: admin
-:category: code
+:category: technology
+:tags: code
 :tags: svn
 :slug: how-to-solve-the-local-edit-incoming-delete-upon-update-issue-in-svn
 

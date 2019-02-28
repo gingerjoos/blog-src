@@ -2,7 +2,8 @@ Saddam Hussein executed
 #######################
 :date: 2006-12-30 12:13
 :author: admin
-:category: america, Bush, politics, saddam
+:category: politics
+:tags: america, Bush, politics, saddam
 :slug: saddam-hussein-executed
 
 Finally, they've done it. Reactions along expected lines almost all

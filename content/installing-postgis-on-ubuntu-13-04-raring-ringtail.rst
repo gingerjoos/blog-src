@@ -2,8 +2,8 @@ Installing PostGIS on Ubuntu 13.04 Raring Ringtail
 ##################################################
 :date: 2013-08-02 18:49
 :author: admin
-:category: code
-:tags: postgis, postgres, raring, ubuntu
+:category: technology
+:tags: postgis, postgres, raring, ubuntu, code
 :slug: installing-postgis-on-ubuntu-13-04-raring-ringtail
 
 It's as simple as

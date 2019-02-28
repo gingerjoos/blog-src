@@ -2,8 +2,8 @@ Django 1.4 on CentOS 5.8
 ########################
 :date: 2012-08-24 18:25
 :author: admin
-:category: django, Linux
-:tags: centos, django
+:category: technology
+:tags: centos, django, Linux
 :slug: django-1-4-on-centos-5-8
 
 The default python version (2.4.3) on Centos 5.8 is `not supported for

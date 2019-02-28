@@ -2,7 +2,8 @@ Using Windows partitions from Debian GNU/Linux
 ##############################################
 :date: 2007-04-05 03:23
 :author: admin
-:category: Linux, technology
+:category: technology
+:tags: Linux, technology
 :slug: using-windows-partitions-from-debian-gnulinux
 
 My friend `Arun <http://digitalpbk.blogspot.com/>`__ recently blogged

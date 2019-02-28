@@ -2,8 +2,8 @@ Hoax mail from "Microsoft"
 ##########################
 :date: 2008-10-12 03:36
 :author: admin
-:category: computer security, technology
-:tags: hoax, windows
+:category: technology
+:tags: hoax, windows, computer security, technology
 :slug: hoax-mail-from-microsoft
 
 This is a mail I got

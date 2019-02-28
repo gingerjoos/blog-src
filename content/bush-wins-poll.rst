@@ -2,7 +2,8 @@ Bush wins poll!!!
 #################
 :date: 2006-12-30 06:21
 :author: admin
-:category: america, Bush, politics, technology
+:category: politics
+:tags: america, Bush, politics, technology
 :slug: bush-wins-poll
 
 Bush just won a poll, and it's not what you think

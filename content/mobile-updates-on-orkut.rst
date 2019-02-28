@@ -2,8 +2,8 @@ Mobile updates on Orkut?
 ########################
 :date: 2009-05-20 03:36
 :author: admin
-:category: from the web, technology
-:tags: google, mobile, mobile updates, orkut, orkut scrap
+:category: technology
+:tags: google, mobile, mobile updates, orkut, orkut scrap, from the web, technology
 :slug: mobile-updates-on-orkut
 
 A while ago I got a message on my mobile from "TM-Orkut". It was a scrap

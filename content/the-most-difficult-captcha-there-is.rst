@@ -2,8 +2,8 @@ The most difficult captcha there is
 ###################################
 :date: 2009-06-02 04:22
 :author: admin
-:category: computer security, from the web, technology
-:tags: captcha, gul panag
+:category: technology
+:tags: captcha, gul panag, computer security, from the web, technology
 :slug: the-most-difficult-captcha-there-is
 
 I was browsing through the `site of a

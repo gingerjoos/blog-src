@@ -2,8 +2,8 @@ Intel 8085 microprocessor simulator
 ###################################
 :date: 2009-06-23 00:39
 :author: admin
-:category: from the web, technology
-:tags: 8085, 8085 microprocessor, intel, javascript, microprocessor, php, simulator
+:category: technology
+:tags: 8085, 8085 microprocessor, intel, javascript, microprocessor, php, simulator, from the web, technology
 :slug: intel-8085-microprocessor-simulator
 
 My friend Arun created an `Intel 8085 microprocessor

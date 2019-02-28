@@ -2,7 +2,7 @@
 ####################################
 :date: 2009-03-20 23:34
 :author: admin
-:category: ads, music
+:category: music
 :tags: ads, music, Raymond, Scenes from Childhood
 :slug: scenes-from-childhood-and-raymonds
 

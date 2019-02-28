@@ -2,8 +2,8 @@ IRCTC disabled right click
 ##########################
 :date: 2010-06-09 08:02
 :author: admin
-:category: code, misc
-:tags: irctc, javascript
+:category: technology
+:tags: irctc, javascript, code, misc
 :slug: irctc-disabled-right-click
 
 Many readers of my post on `booking tatkal tickets with Firefox's

@@ -2,8 +2,8 @@ Useful vim commands
 ###################
 :date: 2009-06-04 12:06
 :author: admin
-:category: Linux, technology
-:tags: useful vi commands, useful vim commands, vi, vim, vim enhanced, vim keyboard shortcuts, vim shortcuts
+:category: technology
+:tags: useful vi commands, useful vim commands, vi, vim, vim enhanced, vim keyboard shortcuts, vim shortcuts, Linux, technology
 :slug: useful-vim-commands
 
 I use `vim <http://en.wikipedia.org/wiki/Vim_(text_editor)>`__ at work

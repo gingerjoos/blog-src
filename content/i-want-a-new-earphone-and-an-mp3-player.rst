@@ -2,8 +2,8 @@ I want a new earphone and an mp3 player
 #######################################
 :date: 2008-09-12 12:40
 :author: admin
-:category: Questions, technology
-:tags: earphones, headphones, music players
+:category: technology
+:tags: earphones, headphones, music players, Questions, technology
 :slug: i-want-a-new-earphone-and-an-mp3-player
 
 Long time since my last post :D This time I've a question for the

@@ -2,8 +2,8 @@ Copying files from one unix box to another with scp
 ###################################################
 :date: 2009-07-31 11:23
 :author: admin
-:category: Linux, technology
-:tags: Linux, rcp, scp, ssh, unix
+:category: technology
+:tags: Linux, rcp, scp, ssh, unix, Linux, technology
 :slug: copying-files-from-one-unix-box-to-another-with-scp
 
 ssh is a very powerful and widely used protocol in all the Unices. If

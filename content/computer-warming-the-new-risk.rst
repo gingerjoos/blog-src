@@ -2,7 +2,8 @@ Computer Warming - the new risk?!
 #################################
 :date: 2006-12-30 13:02
 :author: admin
-:category: computer security, technology
+:category: technology
+:tags: computer security, technology
 :slug: computer-warming-the-new-risk
 
 Happened to come across `a pointer in

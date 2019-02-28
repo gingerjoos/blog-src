@@ -2,8 +2,8 @@ Carl Icahn and Yahoo!
 #####################
 :date: 2008-05-15 16:23
 :author: admin
-:category: politics, technology
-:tags: icahn, microsoft, yahoo
+:category: technology
+:tags: icahn, microsoft, yahoo, politics, technology
 :slug: carl-icahn-and-yahoo
 
 Saw an `article on

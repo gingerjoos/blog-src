@@ -2,8 +2,8 @@ Gingerjoos.com visitor stats on a map
 #####################################
 :date: 2009-09-10 08:01
 :author: admin
-:category: from the web, technology
-:tags: analytics, monitoring, statistics, visitor counter, web statistics
+:category: technology
+:tags: analytics, monitoring, statistics, visitor counter, web statistics, from the web, technology
 :slug: gingerjoos-com-visitor-stats-on-a-map
 
 My friend Arun Prabhakar recently started playing around with some
