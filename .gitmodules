@@ -1,3 +1,6 @@
 [submodule "themes/martin-pelican"]
 	path = themes/martin-pelican
 	url = https://github.com/cpaulik/martin-pelican.git
+[submodule "output"]
+	path = output
+	url = git@github.com:gingerjoos/gingerjoos.github.io.git
