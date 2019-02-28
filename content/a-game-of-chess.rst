@@ -3,6 +3,7 @@ A game of chess
 :date: 2011-01-23 04:15
 :author: admin
 :category: story
+:tags: story, chess, ingmar bergman
 :slug: a-game-of-chess
 
 He couldn't sleep. No use fighting it. Counting sheep could take you
